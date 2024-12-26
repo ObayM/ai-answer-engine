@@ -34,7 +34,9 @@ export default function Home() {
 
       // TODO: Handle the response from the chat API to display the AI response in the UI
 
-
+      const data = await response.json();
+      const aiMessage = { role: "ai" as const, content: data.message };
+      setMessages(prev => [...prev, aiMessage]);
 
 
     } catch (error) {
